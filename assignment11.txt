@@ -1,0 +1,38 @@
+Q1.
+
+kd4_shantanu_83521@localhost>select * from ORDERS where Cnum =(select Cnum from CUSTOMERS where Cname='Cisneros');
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
++------+---------+------------+------+------+
+2 rows in set (0.13 sec)
+
+
+
+Q2.
+
+kd4_shantanu_83521@localhost>select Cname"CUSTOMER NAME",Rating"AVERAGE RATING" from CUSTOMERS where CUSTOMERS.Rating>(select avg(Rating) from CUSTOMERS order by 1);
++---------------+----------------+
+| CUSTOMER NAME | AVERAGE RATING |
++---------------+----------------+
+| Giovanni      |            200 |
+| Liu           |            200 |
+| Grass         |            300 |
+| Cisneros      |            300 |
++---------------+----------------+
+4 rows in set (0.00 sec)
+
+
+Q3.
+
+
+kd4_shantanu_83521@localhost>SELECT MAX(amt) maximun_order, SUM(Amt) AS total_amount FROM ORDERS GROUP BY Snum HAVING SUM(amt) > (SELECT MAX(amt) FROM ORDERS);
++---------------+--------------+
+| maximun_order | total_amount |
++---------------+--------------+
+|       9891.88 |     15382.07 |
++---------------+--------------+
+1 row in set (0.03 sec)
+

@@ -1,0 +1,7 @@
+ANS1---
+
+Data compiles with the ANSI SQL standard definition for Gregorian calender.
+
+ANS2---
+
+"DML" Subdivision of SQL is used to insert values in the tables.

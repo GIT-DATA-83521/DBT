@@ -1,0 +1,77 @@
+Q1.
+
+
+kd4_shantanu_83521@localhost>select Onum,Cname from ORDERS,CUSTOMERS where ORDERS.Cnum=CUSTOMERS.Cnum order by 1;
++------+----------+
+| Onum | Cname    |
++------+----------+
+| 3001 | Cisneros |
+| 3002 | Pereira  |
+| 3003 | Hoffman  |
+| 3005 | Liu      |
+| 3006 | Cisneros |
+| 3007 | Grass    |
+| 3008 | Clemens  |
+| 3009 | Giovanni |
+| 3010 | Grass    |
+| 3011 | Clemens  |
++------+----------+
+10 rows in set (0.00 sec)
+
+
+Q2.
+
+kd4_shantanu_83521@localhost>select Sname"SALESPEOPLE_NAME",Cname"CUSTOMER_NAME",Onum"ORDER_NUMBER" from ORDERS,CUSTOMERS,SALESPEOPLE where SALESPEOPLE.Snum=CUSTOMERS.Snum a
+nd CUSTOMERS.Snum=ORDERS.Snum order by 1;
++------------------+---------------+--------------+
+| SALESPEOPLE_NAME | CUSTOMER_NAME | ORDER_NUMBER |
++------------------+---------------+--------------+
+| Axelrod          | Giovanni      |         3009 |
+| Motika           | Pereira       |         3002 |
+| Peel             | Hoffman       |         3011 |
+| Peel             | Hoffman       |         3008 |
+| Peel             | Hoffman       |         3003 |
+| Peel             | Clemens       |         3011 |
+| Peel             | Clemens       |         3008 |
+| Peel             | Clemens       |         3003 |
+| Rifkin           | Cisneros      |         3006 |
+| Rifkin           | Cisneros      |         3001 |
+| Serres           | Liu           |         3010 |
+| Serres           | Liu           |         3007 |
+| Serres           | Liu           |         3005 |
+| Serres           | Grass         |         3010 |
+| Serres           | Grass         |         3007 |
+| Serres           | Grass         |         3005 |
++------------------+---------------+--------------+
+16 rows in set (0.00 sec)
+
+
+Q3.
+
+
+kd4_shantanu_83521@localhost>select Cname"CUSTOMERS NAME",Sname"SALESPERSON NAME",Comm"RATE OF COMMISSION" from CUSTOMERS,SALESPEOPLE where Comm >0.12 and SALESPEOPLE.Snum=CUSTOMERS.Snum order by 1;
++----------------+------------------+--------------------+
+| CUSTOMERS NAME | SALESPERSON NAME | RATE OF COMMISSION |
++----------------+------------------+--------------------+
+| Cisneros       | Rifkin           |               0.15 |
+| Grass          | Serres           |               0.13 |
+| Liu            | Serres           |               0.13 |
++----------------+------------------+--------------------+
+3 rows in set (0.00 sec)
+
+Q4.
+
+kd4_shantanu_83521@localhost>select Sname"SALESPERSON NAME",Comm,Amt*Comm"AMOUNT OF COMMISSION",Rating from ORDERS,CUSTOMERS,SALESPEOPLE where ORDERS.Cnum = CUSTOMERS.Cnum a
+nd CUSTOMERS.Snum = SALESPEOPLE.Snum and  CUSTOMERS.Rating>100;
++------------------+------+----------------------+--------+
+| SALESPERSON NAME | Comm | AMOUNT OF COMMISSION | Rating |
++------------------+------+----------------------+--------+
+| Rifkin           | 0.15 |                 2.80 |    300 |
+| Serres           | 0.13 |               670.86 |    200 |
+| Rifkin           | 0.15 |               164.72 |    300 |
+| Axelrod          | 0.10 |               171.32 |    200 |
+| Serres           | 0.13 |                 9.85 |    300 |
+| Serres           | 0.13 |               170.29 |    300 |
++------------------+------+----------------------+--------+
+6 rows in set (0.01 sec)
+

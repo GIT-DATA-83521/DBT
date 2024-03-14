@@ -1,0 +1,68 @@
+
+
+Q1.
+
+kd4_shantanu_83521@localhost>select Onum,Snum,Amt*0.12 "Salesperson Comm" from ORDERS order by 1;
++------+------+------------------+
+| Onum | Snum | Salesperson Comm |
++------+------+------------------+
+| 3001 | 1007 |             2.24 |
+| 3002 | 1004 |           228.01 |
+| 3003 | 1001 |            92.06 |
+| 3005 | 1002 |           619.25 |
+| 3006 | 1007 |           131.78 |
+| 3007 | 1002 |             9.09 |
+| 3008 | 1001 |           566.76 |
+| 3009 | 1003 |           205.59 |
+| 3010 | 1002 |           157.19 |
+| 3011 | 1001 |          1187.03 |
++------+------+------------------+
+10 rows in set (0.00 sec)
+
+
+
+Q2.
+
+kd4_shantanu_83521@localhost>select concat('For the City ',City,' The Highest Rating is : ',max(Rating))as  Rating_by_city from CUSTOMERS group by City;
++---------------------------------------------------+
+| Rating_by_city                                    |
++---------------------------------------------------+
+| For the City London The Highest Rating is : 100   |
+| For the City Rome The Highest Rating is : 200     |
+| For the City San Jose The Highest Rating is : 300 |
+| For the City Berlin The Highest Rating is : 300   |
++---------------------------------------------------+
+4 rows in set (0.00 sec)
+
+
+Q3.
+
+
+kd4_shantanu_83521@localhost>select Rating,Cname,Cnum from CUSTOMERS order by Rating desc;
++--------+----------+------+
+| Rating | Cname    | Cnum |
++--------+----------+------+
+|    300 | Grass    | 2004 |
+|    300 | Cisneros | 2008 |
+|    200 | Giovanni | 2002 |
+|    200 | Liu      | 2003 |
+|    100 | Hoffman  | 2001 |
+|    100 | Clemens  | 2006 |
+|    100 | Pereira  | 2007 |
++--------+----------+------+
+7 rows in set (0.00 sec)
+
+
+Q4.
+
+kd4_shantanu_83521@localhost>Select Odate,count(Odate) from ORDERS group by Odate order by count(Odate) desc;
++------------+--------------+
+| Odate      | count(Odate) |
++------------+--------------+
+| 1990-10-03 |            5 |
+| 1990-10-04 |            2 |
+| 1990-10-06 |            2 |
+| 1990-10-05 |            1 |
++------------+--------------+
+4 rows in set (0.00 sec)
+

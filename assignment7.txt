@@ -1,0 +1,85 @@
+Q1.
+
+
+kd4_shantanu_83521@localhost>select count(*) from ORDERS where Odate='1990-10-03';
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+
+
+kd4_shantanu_83521@localhost>select count(*) from ORDERS where Odate <='1990-10-03';
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+
+
+Q2.
+
+kd4_shantanu_83521@localhost>select count(*) from CUSTOMERS where City!='null';
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+
+Q3.
+
+kd4_shantanu_83521@localhost>select Cnum,min(Amt) from ORDERS group by Cnum order by 1;
++------+----------+
+| Cnum | min(Amt) |
++------+----------+
+| 2001 |   767.19 |
+| 2002 |  1713.23 |
+| 2003 |  5160.45 |
+| 2004 |    75.75 |
+| 2006 |  4723.00 |
+| 2007 |  1900.10 |
+| 2008 |    18.69 |
++------+----------+
+7 rows in set (0.00 sec)
+
+Q4.
+
+kd4_shantanu_83521@localhost>select min(Cname) from CUSTOMERS where Cname like 'G%' order by 1;
++------------+
+| min(Cname) |
++------------+
+| Giovanni   |
++------------+
+1 row in set (0.00 sec)
+
+Q5.
+
+kd4_shantanu_83521@localhost>select City,max(Rating) from CUSTOMERS group by City order by 1;
++----------+-------------+
+| City     | max(Rating) |
++----------+-------------+
+| Berlin   |         300 |
+| London   |         100 |
+| Rome     |         200 |
+| San Jose |         300 |
++----------+-------------+
+4 rows in set (0.00 sec)
+
+
+Q6.
+
+kd4_shantanu_83521@localhost>select Snum,count(distinct Odate) from ORDERS group by Snum order by 1;
++------+-----------------------+
+| Snum | count(distinct Odate) |
++------+-----------------------+
+| 1001 |                     3 |
+| 1002 |                     3 |
+| 1003 |                     1 |
+| 1004 |                     1 |
+| 1007 |                     1 |
++------+-----------------------+
+5 rows in set (0.00 sec)
+

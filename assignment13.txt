@@ -1,0 +1,49 @@
+Q1.
+
+
+kd4_shantanu_83521@localhost>select Cname, City, 'HIGH RATING' Rating from CUSTOMERS where Rating >=200 union select Cname,City,'Low Rating' Rating from CUSTOMERS where Rating <200;
++----------+----------+-------------+
+| Cname    | City     | Rating      |
++----------+----------+-------------+
+| Giovanni | Rome     | HIGH RATING |
+| Liu      | San Jose | HIGH RATING |
+| Grass    | Berlin   | HIGH RATING |
+| Cisneros | San Jose | HIGH RATING |
+| Hoffman  | London   | Low Rating  |
+| Clemens  | London   | Low Rating  |
+| Pereira  | Rome     | Low Rating  |
++----------+----------+-------------+
+7 rows in set (0.00 sec)
+
+
+Q2.
+
+kd4_shantanu_83521@localhost>select Cname,Cnum from CUSTOMERS where Cnum =any(select Cnum from ORDERS group by Cnum having count(Cnum)>1) UNION select Sname,Snum from SALESPEOPLE where Snum =any(select Snum from ORDERS group by Snum having count(Snum)>1) ORDER BY Cname;
++----------+------+
+| Cname    | Cnum |
++----------+------+
+| Cisneros | 2008 |
+| Grass    | 2004 |
+| Rifkin   | 1007 |
+| Serres   | 1002 |
++----------+------+
+4 rows in set (0.00 sec)
+
+
+Q3.
+
+kd4_shantanu_83521@localhost>select SNUM from SALESPEOPLE where CITY="San Jose" union select CNUM from CUSTOMERS where CITY="San Jose" union all select ONUM from ORDERS where ODATE = "1990-10-03";
++------+
+| SNUM |
++------+
+| 1002 |
+| 2003 |
+| 2008 |
+| 3001 |
+| 3003 |
+| 3002 |
+| 3005 |
+| 3006 |
++------+
+8 rows in set (0.00 sec)
+

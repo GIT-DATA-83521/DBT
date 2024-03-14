@@ -1,0 +1,19 @@
+ANS1----
+
+CNUM is the primary key in the CUSTOMERS table.
+
+
+ANS2---
+
+RATING is the 4th column in the CUSTOMERS table.
+
+
+ANS3-----
+
+ROW- TUPLE, ENTITY, OPPORTUNITY
+COLUMN- ATTRIBUTE,METHOD,KEY
+
+
+ANS4---
+
+It is not possible to see first five row of a table because as they are stored randamoly(scattered)(fragmented) all over the Database SERVER HD. 
